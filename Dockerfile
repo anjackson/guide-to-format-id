@@ -26,13 +26,17 @@ RUN pip install appmode && \
 RUN pip install fileupload && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter nbextension install --user --py fileupload && \
-    jupyter nbextension enable  --user --py fileupload && \
-    jupyter trust 01-Ident-O-Matic.ipynb
+    jupyter nbextension enable  --user --py fileupload
 
+RUN sf -update
+
+RUN curl -s -o tika-app.jar https://www-eu.apache.org/dist/tika/tika-app-1.21.jar
 
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
+
+RUN jupyter trust 01-Ident-O-Matic.ipynb
 
 # TEMP
