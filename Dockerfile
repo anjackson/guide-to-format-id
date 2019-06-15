@@ -19,6 +19,15 @@ RUN wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintra
     echo "deb http://dl.bintray.com/siegfried/debian wheezy main" | tee -a /etc/apt/sources.list  && \
     apt-get update && apt-get install -y siegfried && apt-get install -y default-jre
 
+RUN pip install appmode && \
+    jupyter nbextension     enable --py --sys-prefix appmode && \
+    jupyter serverextension enable --py --sys-prefix appmode
+
+RUN pip install fileupload && \
+    jupyter nbextension install --py fileupload && \
+    jupyter nbextension enable --py fileupload
+
+
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
