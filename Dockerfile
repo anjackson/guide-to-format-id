@@ -24,8 +24,10 @@ RUN pip install appmode && \
     jupyter serverextension enable --py --sys-prefix appmode
 
 RUN pip install fileupload && \
-    jupyter nbextension install --py fileupload && \
-    jupyter nbextension enable --py fileupload
+    jupyter nbextension enable --py widgetsnbextension && \
+    jupyter nbextension install --user --py fileupload && \
+    jupyter nbextension enable  --user --py fileupload && \
+    jupyter trust 01-Ident-O-Matic.ipynb
 
 
 COPY . ${HOME}
