@@ -21,6 +21,8 @@ RUN pip install fileupload && \
     jupyter nbextension install --user --py fileupload && \
     jupyter nbextension enable  --user --py fileupload
 
+RUN pip install pandas altair
+
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
