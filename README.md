@@ -1,12 +1,11 @@
 DigiPres Sandbox
 =================
 
-This project makes it possible to play with the tools supported by the [DigiPres Toolbox](https://github.com/digipres/toolbox), directly in your browser!
+This project makes it possible to play with the tools supported by the [DigiPres Toolbox](https://github.com/digipres/toolbox), running it in the cloud so you can access it via your browser!
 
 It works because it takes advantage of [Binder](https://jupyter.org/binder), which was built to support reproducibility in scientific research.  By clicking the button below, you can fire up a remote Linux session with a [Jupyter](https://jupyter.org/) interface, and start experimenting...
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/digipres/sandbox/master)
-
 
 **NOTE** that it might take a minute or two to get started, and note also that this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
 
