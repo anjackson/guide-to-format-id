@@ -21,6 +21,7 @@ RUN pip install --no-cache-dir pandas altair requests
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+RUN chsh -s /bin/bash ${NB_USER}
 USER ${NB_USER}
 
 WORKDIR ${HOME}
