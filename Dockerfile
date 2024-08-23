@@ -1,4 +1,4 @@
-FROM digipresnet/format-id-toolbox:1.0.0
+FROM ghcr.io/anjackson/format-id-toolbox:master
 
 ### create user with a home directory
 ARG NB_USER
