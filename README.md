@@ -5,7 +5,7 @@ This project makes it possible to play with the tools supported by the [DigiPres
 
 It works because it takes advantage of [Binder](https://jupyter.org/binder), which was built to support reproducibility in scientific research.  By clicking the button below, you can fire up a remote Linux session with a [Jupyter](https://jupyter.org/) interface, and start experimenting...
 
-<a href="https://mybinder.org/v2/gh/digipres/sandbox/master" rel="nofollow" target="_blank"><img src="https://mybinder.org/badge_logo.svg" style="max-width: 100%;"></a>
+<a href="https://mybinder.org/v2/gh/digipres/sandbox/master" target="_blank" rel="noopener"><img src="https://mybinder.org/badge_logo.svg" style="max-width: 100%;"></a>
 
 **NOTE** please be patient, as it might take a minute or two to before things get started. Note also that this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
 
