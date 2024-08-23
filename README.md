@@ -7,7 +7,7 @@ It works because it takes advantage of [Binder](https://jupyter.org/binder), whi
 
 <a href="https://mybinder.org/v2/gh/digipres/sandbox/master" rel="nofollow" target="_blank"><img src="https://mybinder.org/badge_logo.svg" style="max-width: 100%;"></a>
 
-**NOTE** that it might take a minute or two to get started, and note also that this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
+**NOTE** please be patient, as it might take a minute or two to before things get started. Note also that this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
 
 If you want some help to get started, you can find an introduction in the [DigiPres Workbench](https://github.com/digipres/workbench).
 
