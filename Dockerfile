@@ -14,19 +14,27 @@ RUN adduser --disabled-password \
     --shell ${SHELL} \
     ${NB_USER}
 
+# Do some funky stuff so sudo works so apt-get can work:
+# https://askubuntu.com/questions/452860/usr-bin-sudo-must-be-owned-by-uid-0-and-have-the-setuid-bit-set
+# https://askubuntu.com/questions/147241/execute-sudo-without-password
+RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo && \
+    echo "$NB_USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$NB_USER
+
 # Add some handy stuff:
 RUN pip install --no-cache-dir pandas altair requests
 
 # Switch off announcements pop-up:
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 
+# Set the working directory:
+WORKDIR ${HOME}
+
 # Make sure the contents of our repo are in ${HOME}:
-COPY . ${HOME}
+COPY welcome.ipynb README.md notebooks test-files ./
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
-# Set the working directory etc.:
-WORKDIR ${HOME}
-RUN jupyter trust 01-Ident-O-Matic.ipynb
-
+# Set up the workspace so the startup looks consistent:
+COPY default.jupyterlab-workspace workspace.json
+RUN jupyter lab workspaces import workspace.json && rm workspace.json
