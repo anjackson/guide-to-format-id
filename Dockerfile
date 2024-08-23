@@ -1,4 +1,4 @@
-FROM ghcr.io/anjackson/format-id-toolbox:v1.1.0
+FROM ghcr.io/digipres/toolbox:v1.2.0
 
 ### Create user with a home directory:
 ARG NB_USER=jovyan
