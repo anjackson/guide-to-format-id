@@ -30,7 +30,9 @@ RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 WORKDIR ${HOME}
 
 # Make sure the contents of our repo are in ${HOME}:
-COPY welcome.ipynb README.md notebooks test-files ./
+COPY welcome.ipynb README.md ./
+ADD notebooks notebooks
+ADD test-files test-files
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
