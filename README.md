@@ -8,7 +8,7 @@ It works because it takes advantage of [Binder](https://jupyter.org/binder), whi
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/digipres/sandbox/master)
 
 
-**NOTE** this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
+**NOTE** that it might take a minute or two to get started, and note also that this is an an ephemeral service and your session will be shut down after a while, especially if it's not doing anything.
 
 If you want some help to get started, you can find an introduction in the [DigiPres Workbench](https://github.com/digipres/workbench).
 
