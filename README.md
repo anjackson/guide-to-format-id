@@ -35,3 +35,6 @@ jupyter-repo2docker -v .:/home/${USER} .
 This means the local folder is passed through and you can keep any changes you make to the files.
 
 
+### Setting the workspace layout
+
+The layout of the workspace, e.g. tabs and notebook arrangements, can be saved and restored as per the example given here: https://github.com/ian-r-rose/binder-workspace-demo/
