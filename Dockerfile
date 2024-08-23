@@ -1,7 +1,4 @@
-FROM ghcr.io/anjackson/format-id-toolbox:master
-
-# Make sure the libraries we need are there:
-RUN python3 -m pip install --no-cache-dir notebook jupyterlab
+FROM ghcr.io/anjackson/format-id-toolbox:v1.1.0
 
 ### Create user with a home directory:
 ARG NB_USER=jovyan
