@@ -25,7 +25,8 @@ RUN adduser --disabled-password \
 WORKDIR ${HOME}
 
 # Make sure the contents of our repo are in ${HOME}
-COPY welcome.ipynb README.md ./
+COPY welcome.ipynb README.md mount-pantry.sh ./
+COPY rclone.conf .config/rclone/rclone.conf
 ADD notebooks notebooks
 ADD test-files test-files
 
