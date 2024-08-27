@@ -1,12 +1,13 @@
 FROM ghcr.io/digipres/toolbox:v1.4.1
 
-# Add the Jupyter stuff
+# Add the Jupyter things we need
 RUN pip install --no-cache-dir jupyterlab notebook pandas altair requests bash_kernel && python -m bash_kernel.install
 
 # Switch off announcements pop-up
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 
 # Do required setup for running on Binder...
+# https://mybinder.readthedocs.io/en/latest/tutorials/dockerfile.html
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
