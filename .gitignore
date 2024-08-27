@@ -5,3 +5,4 @@
 .local/
 .venv/
 .cache/
+.config/
