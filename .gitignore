@@ -4,3 +4,5 @@
 .jupyter/
 .local/
 .venv/
+.cache/
+.config/

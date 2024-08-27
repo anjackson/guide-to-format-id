@@ -1,4 +1,4 @@
-FROM ghcr.io/digipres/toolbox:v1.2.0
+FROM ghcr.io/digipres/toolbox:v1.3.0
 
 # Add some handy stuff:
 RUN pip install --no-cache-dir pandas altair requests
