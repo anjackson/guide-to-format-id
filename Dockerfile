@@ -20,13 +20,9 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     --shell ${SHELL} \
     ${NB_USER}
-RUN chown -R ${NB_UID} ${HOME}
 
 # Set the working directory
 WORKDIR ${HOME}
-
-# Switch to the run-time user
-USER ${NB_USER}
 
 # Make sure the contents of our repo are in ${HOME}
 COPY welcome.ipynb README.md ./
@@ -36,3 +32,7 @@ ADD test-files test-files
 # Set up the workspace so the startup looks consistent
 COPY default.jupyterlab-workspace workspace.json
 RUN jupyter lab workspaces import workspace.json && rm workspace.json
+
+# Switch to the run-time user
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
