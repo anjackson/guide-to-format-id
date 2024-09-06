@@ -1,12 +1,6 @@
 # Start with a custom image with pre-installed tools:
 FROM ghcr.io/digipres/toolbox:v1.4.1
 
-# Install FUSE mount support so remote corpora can be used
-# (move this up to the toolbox, if it works!)
-RUN apt-get update && \ 
-    apt-get install -y fuse3 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Add the Jupyter things we need
 RUN pip install --no-cache-dir jupyterlab notebook pandas altair requests bash_kernel && python -m bash_kernel.install
 
@@ -21,6 +15,7 @@ ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
 ENV SHELL /bin/bash
+
 # Create user with a home directory
 RUN adduser --disabled-password \
     --gecos "Default user" \
@@ -32,7 +27,7 @@ RUN adduser --disabled-password \
 WORKDIR ${HOME}
 
 # Make sure the contents of our repo are in ${HOME}
-COPY welcome.ipynb README.md mount-pantry.sh ./
+COPY welcome.ipynb README.md ./
 COPY rclone.conf .config/rclone/rclone.conf
 ADD notebooks notebooks
 ADD test-files test-files
@@ -40,6 +35,11 @@ ADD test-files test-files
 # Set up the workspace so the startup looks consistent
 COPY default.jupyterlab-workspace workspace.json
 RUN jupyter lab workspaces import workspace.json && rm workspace.json
+
+# Also install the lc-shell files in case anyone wants them:
+RUN curl -O -L https://librarycarpentry.org/lc-shell/data/shell-lesson.zip && \
+    unzip shell-lesson.zip -d shell-lesson -x '__MACOSX/*' && \
+    rm shell-lesson.zip
 
 # Switch to the run-time user
 RUN chown -R ${NB_UID} ${HOME}
